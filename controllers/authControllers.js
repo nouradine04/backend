@@ -244,3 +244,19 @@ exports.listHotel = async (req, res) => {
         res.status(500).json({ message: 'Erreur serveur lors de la récupération des hôtels' });
     }
 };
+
+exports.signout = async (req, res) => {
+    try {
+        res.clearCookie('token'); 
+        return res.json({
+            success: true,
+            message: "Déconnexion réussie"
+        });
+    } catch (error) {
+        console.error("Erreur lors de la déconnexion :", error);
+        return res.status(500).json({
+            success: false,
+            message: "Erreur lors de la déconnexion"
+        });
+    }
+};
