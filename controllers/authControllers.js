@@ -7,7 +7,7 @@ const { doHash, doHashValidation } = require('../utils/hashing'); // Assurez-vou
 const Hotel = require('../models/HotelModel');
 const transport = require('../middlewares/SendMail');
 const { createHmac } = require('crypto');
-const bcrypt = require('bcrypt'); // Déclaration de bcrypt
+const bcrypt = require('bcryptjs');
 
 exports.signup = async (req, res) => {
     const { email, nom, password } = req.body;
